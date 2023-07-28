@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HeroService {
+  login_details:any=[{phone:"9445886295",pass:"123456"},
+  {phone:"9788586295",pass:"123456"},
+  {phone:"8695489921",pass:"123456"}]
   student_details:any=[];
   teacher_details:any=[];
   inLogin(){

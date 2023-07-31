@@ -22,16 +22,16 @@ export class LoginPageComponent {
   passvalid:any
   userLogin(){
     this.heroservice.login_details.forEach((element:any) => {
-      if(element.phone==this.login.value.phone && element.pass==this.login.value.pass){
+      console.log(this.login.valid)
+      if(element.phone==this.login.value.phone && element.pass==this.login.value.pass && this.login.valid){
         const person:string=""+this.login.value.phone
         localStorage.setItem("token",person);
         this.condition=false;
+        return;
       }
       else{
         this.minlength=this.login.get('phone')?.hasError('minlength');
         this.minpass=this.login.get('pass')?.hasError('minlength');
-        this.phonevalid=this.login.get('phone')?.invalid;
-        this.passvalid=this.login.get('pass')?.invalid;
       }
     });
   }

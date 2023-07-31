@@ -18,7 +18,8 @@ import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.compone
     AppComponent,
     LoginPageComponent,
     StudentdetailsComponent,
-    TeacherdetailsComponent
+    TeacherdetailsComponent,
+    
   ],
   imports: [
     BrowserModule,

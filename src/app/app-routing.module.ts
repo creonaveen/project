@@ -4,11 +4,16 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.component';
 import { AuthguardGuard } from './authguard.guard';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path:"login",component:LoginPageComponent},
-  {path:"student",component:StudentdetailsComponent,canActivate:[AuthguardGuard]},
-  {path:"teacher",component:TeacherdetailsComponent,canActivate:[AuthguardGuard]}
+  {path:"",component:AppComponent,
+  canActivate:[AuthguardGuard],
+  children:[
+    {path:"student",component:StudentdetailsComponent},
+    {path:"teacher",component:TeacherdetailsComponent},
+  ]},
+    {path:"login",component:LoginPageComponent},
 ];
 
 @NgModule({

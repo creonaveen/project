@@ -21,19 +21,14 @@ export class LoginPageComponent {
   phonevalid:any
   passvalid:any
   userLogin(){
-    this.heroservice.login_details.forEach((element:any) => {
-      console.log(this.login.valid)
-      if(element.phone==this.login.value.phone && element.pass==this.login.value.pass && this.login.valid){
-        const person:string=""+this.login.value.phone
+    if(this.login.valid){
+      this.heroservice.validCheck(this.login.value).subscribe(val=>{
+        const person:string=""+val;
         localStorage.setItem("token",person);
         this.condition=false;
-        return;
-      }
-      else{
-        this.minlength=this.login.get('phone')?.hasError('minlength');
-        this.minpass=this.login.get('pass')?.hasError('minlength');
-      }
-    });
+      })
+      return
+    }
   }
   logout(){
     localStorage.removeItem("token");

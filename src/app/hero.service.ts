@@ -13,6 +13,16 @@ export class HeroService {
   inLogin(){
     return !!localStorage.getItem('token');
   }
+  validCheck(login:any){
+    const obser=new Observable((val)=>{
+      this.login_details.forEach((element:any)=>{
+        if(element.phone==login.phone && element.pass==login.pass){
+          val.next(login.phone);
+        }
+      });
+    });
+    return obser;
+  }
   studentDetailsSaved(studentrecord:any){
     const obser=new Observable((val)=>{
       this.student_details.push(studentrecord);

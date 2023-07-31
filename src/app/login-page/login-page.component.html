@@ -1,21 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-light navbar-inverse navbar-right">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#mynavbar"></button>
-        <div class="collapse navbar-collapse " id="mynavbar">
-            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a href="/student" class="nav-link">Student</a>
-                </li>
-                <li class="nav-item ">
-                    <a href="/teacher" class="nav-link">Teacher</a>
-                </li>
-                <li class="nav-item">
-                    <button mat-raised-button color="warn" type="submit" (click)="logout()">logout</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="container">
     <div class="row">
       <div class="col-12-lg ">
@@ -40,7 +22,7 @@
                         Your password must be at least 6 characters long.
                     </p>
                   <br>
-                    <button mat-raised-button color="warn" type="submit" >Sigin</button>
+                    <button mat-raised-button color="warn" type="submit" [routerLink]="['/dasboard']">Sigin</button>
              </form>
             </div>
           </div>

@@ -5,11 +5,13 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
 import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.component';
 import { AuthguardGuard } from './authguard.guard';
 import { AppComponent } from './app.component';
+import { DasboardComponent } from './dasboard/dasboard.component';
 
 const routes: Routes = [
   {path:"",component:AppComponent,
   canActivate:[AuthguardGuard],
   children:[
+    {path:"dasboard",component:DasboardComponent},
     {path:"student",component:StudentdetailsComponent},
     {path:"teacher",component:TeacherdetailsComponent},
   ]},

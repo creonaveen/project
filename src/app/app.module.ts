@@ -12,6 +12,11 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule} from '@angular/forms';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.component';
+import { DasboardComponent } from './dasboard/dasboard.component';
+import { MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.compone
     LoginPageComponent,
     StudentdetailsComponent,
     TeacherdetailsComponent,
+    DasboardComponent,
     
   ],
   imports: [
@@ -30,6 +36,10 @@ import { TeacherdetailsComponent } from './teacherdetails/teacherdetails.compone
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatTableModule,
+    FormsModule,
+    RouterModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

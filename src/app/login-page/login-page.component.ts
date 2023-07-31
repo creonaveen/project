@@ -30,8 +30,4 @@ export class LoginPageComponent {
       return
     }
   }
-  logout(){
-    localStorage.removeItem("token");
-    this.condition=true;
-  }
 }

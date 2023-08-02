@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HeroService {
-  login_details:any=[{phone:"9445886295",pass:"123456"},
-  {phone:"9788586295",pass:"123456"},
-  {phone:"8695489921",pass:"123456"}]
+  login_details:any=[{id:"1234",phone:"9445886295",pass:"123456"},
+  {id:"12345",phone:"9788586295",pass:"123456"},
+  {id:"123",phone:"8695489921",pass:"123456"}]
   student_details:any=[];
   teacher_details:any=[];
   inLogin(){
@@ -15,12 +15,15 @@ export class HeroService {
   }
   validCheck(login:any){
     const obser=new Observable((val)=>{
-      this.login_details.forEach((element:any)=>{
-        if(element.phone==login.phone && element.pass==login.pass){
-          val.next(login.phone);
-        }
-        val.complete()
-      });
+    const elemen=this.login_details.find((val:any)=>(val.phone==login.phone && val.pass==val.pass));
+    if(elemen.phone==login.phone){
+      val.next(elemen.id);
+      val.complete();
+    }
+    else{
+      val.error('no phone number');
+      val.complete();
+    }
     });
     return obser;
   }

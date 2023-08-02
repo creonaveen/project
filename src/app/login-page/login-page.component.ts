@@ -20,12 +20,17 @@ export class LoginPageComponent {
   minpass:any
   phonevalid:any
   passvalid:any
+  error:any
   userLogin(){
     if(this.login.valid){
       this.heroservice.validCheck(this.login.value).subscribe(val=>{
+        console.log(val)
         const person:string=""+val;
         localStorage.setItem("token",person);
         this.condition=false;
+      },error=>{
+        this.error=error;
+        this.condition=true;
       })
       return
     }

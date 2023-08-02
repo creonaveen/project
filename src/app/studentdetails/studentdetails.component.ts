@@ -35,7 +35,7 @@ export class StudentdetailsComponent {
     alert("save the value");
    if(this.student.valid){
     this.heroservive.studentDetailsSaved(this.student.value).subscribe(value=>{
-      this.table(value);
+      this.tableList(value);
     });
     return;
    }
@@ -54,10 +54,12 @@ export class StudentdetailsComponent {
   onUpdate(){
     alert("save the value")
     this.heroservive.studentEditSave(this.update.value).subscribe((value)=>{
-      this.table(value);
+      this.tableList(value);
     })
   }
-  table(value:any){
+  tableList(value:any){
+  this.heroservive.tableList(value).subscribe((value)=>{
     this.dataSource=value;
+  })
   }
 }

@@ -67,4 +67,11 @@ export class HeroService {
      })
     return obser
   }
+  tableList(value:any){
+    const obser=new Observable((val)=>{
+      val.next(value);
+      val.complete()
+    })
+  return obser
+  }
 }

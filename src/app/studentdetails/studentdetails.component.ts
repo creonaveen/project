@@ -54,8 +54,7 @@ export class StudentdetailsComponent {
   onUpdate(){
     alert("save the value")
     this.heroservive.studentEditSave(this.update.value).subscribe((val)=>{
-      this.dataSource=val;
+
     })
-    this.dataSource
   }
 }

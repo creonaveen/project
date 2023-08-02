@@ -8,21 +8,21 @@
              <form [formGroup]="login" (ngSubmit)="userLogin()" *ngIf="condition">
               <mat-form-field>
                 <mat-label>username</mat-label>
-                 <input type="text" maxlength="10" matInput placeholder="Enter Phone Number" formControlName="phone" name="Phonenumber">
+                 <input type="text"  matInput placeholder="Enter Phone Number" formControlName="phone" name="Phonenumber">
                   </mat-form-field>
-                  <p class="alert alert-danger" *ngIf="login.get('phone')?.hasError('minlength')">
+                  <p class="alert alert-danger" *ngIf="minlength">
                     Your phone must be at least 10 characters long.
                 </p>
                   <br>
                     <mat-form-field>
                     <mat-label>password</mat-label>
-                      <input type="text" maxlength="6" matInput placeholder="password" formControlName="pass" name="password" >
+                      <input type="text" matInput placeholder="password" formControlName="pass" name="password" >
                       </mat-form-field>
                       <p class="alert alert-danger" *ngIf="minpass">
                         Your password must be at least 6 characters long.
                     </p>
                   <br>
-                    <button mat-raised-button color="warn" type="submit" [routerLink]="['/dasboard']">Sigin</button>
+                    <button mat-raised-button color="warn" type="submit">Sigin</button>
              </form>
              {{error}}
             </div>

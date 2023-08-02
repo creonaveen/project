@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,16 @@ export class HeroService {
   login_details:any=[{id:"1234",phone:"9445886295",pass:"123456"},
   {id:"12345",phone:"9788586295",pass:"123456"},
   {id:"123",phone:"8695489921",pass:"123456"}]
-  student_details:any=[];
+  studentrec:any=[{id:123,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"},
+  {id:124,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"},
+  {id:125,firstname:"parth",lastname:"sokku",age:"22",sub:"",class:"",phone:"9807867812"}]
+  student_details:any=this.studentrec
   teacher_details:any=[];
   inLogin(){
     return !!localStorage.getItem('token');
   }
   validCheck(login:any){
+    console.log(this.login_details)
     const obser=new Observable((val)=>{
     const elemen=this.login_details.find((val:any)=>(val.phone==login.phone && val.pass==val.pass));
     if(elemen?.phone==login.phone && elemen?.pass==login.pass){
@@ -47,15 +51,20 @@ export class HeroService {
     return obser;
   }
   studentEditSave(editvalue:any){
+    console.log(this.student_details)
     const obser=new Observable((val)=>{
-      this.student_details.forEach((element:any,index:any)=>{
-        if(element.id==editvalue.id){
-          this.student_details[index]=editvalue;
-          val.next(this.student_details);
+      const elemen=this.student_details.find((val:any)=>(val.id==editvalue.id));
+        if(elemen?.id==editvalue.id){     
+          elemen["firstname"]=editvalue.firstname
+          elemen["lastname"]=editvalue.lastname
+          elemen["age"]=editvalue.age
+          elemen["sub"]=editvalue.sub
+          elemen["class"]=editvalue.class
+          elemen["phone"]=editvalue.phone
+          val.next("update sucessfuly");
+          val.complete();
         }
-        val.complete();
-      })
-    })
+     })
     return obser
   }
 }

@@ -29,7 +29,7 @@ export class LoginPageComponent {
         localStorage.setItem("token",person);
         this.condition=false;
       },error=>{
-        this.error=error;
+        this.error=error.error;
         this.condition=true;
       })
       return

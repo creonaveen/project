@@ -16,12 +16,12 @@ export class HeroService {
   validCheck(login:any){
     const obser=new Observable((val)=>{
     const elemen=this.login_details.find((val:any)=>(val.phone==login.phone && val.pass==val.pass));
-    if(elemen.phone==login.phone){
+    if(elemen?.phone==login.phone && elemen?.pass==login.pass){
       val.next(elemen.id);
       val.complete();
     }
     else{
-      val.error('no phone number');
+      val.error({error:'no phone number'});
       val.complete();
     }
     });

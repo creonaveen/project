@@ -10,7 +10,7 @@
                 <mat-label>username</mat-label>
                  <input type="text"  matInput placeholder="Enter Phone Number" formControlName="phone" name="Phonenumber">
                   </mat-form-field>
-                  <p class="alert alert-danger" *ngIf="minlength">
+                  <p class="alert alert-danger" *ngIf="minlength && this.login.get('phone')?.hasError('minlength')">
                     Your phone must be at least 10 characters long.
                 </p>
                   <br>
@@ -18,7 +18,7 @@
                     <mat-label>password</mat-label>
                       <input type="text" matInput placeholder="password" formControlName="pass" name="password" >
                       </mat-form-field>
-                      <p class="alert alert-danger" *ngIf="minpass">
+                      <p class="alert alert-danger" *ngIf="minlength && this.login.get('pass')?.hasError('minlength')">
                         Your password must be at least 6 characters long.
                     </p>
                   <br>

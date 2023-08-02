@@ -61,7 +61,7 @@ export class HeroService {
           elemen["sub"]=editvalue.sub
           elemen["class"]=editvalue.class
           elemen["phone"]=editvalue.phone
-          val.next("update sucessfuly");
+          val.next(this.student_details);
           val.complete();
         }
      })

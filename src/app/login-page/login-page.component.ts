@@ -18,11 +18,11 @@ export class LoginPageComponent {
   });
   condition:any=true;
   minlength:any=false;
-  minpass:any=false;
   phonevalid:any
   passvalid:any
   error:any
   userLogin(){
+    this.minlength=true;
     if(this.login.valid){
       this.heroservice.validCheck(this.login.value).subscribe(val=>{
         const person:string=""+val;
@@ -35,7 +35,5 @@ export class LoginPageComponent {
       })
       return
     }
-    this.minlength=this.login.get('phone')?.hasError('minlength');
-    this.minpass=this.login.get('pass')?.hasError('minlength');
   }
 }
